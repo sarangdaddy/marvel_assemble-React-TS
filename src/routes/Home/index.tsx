@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 
 import * as S from './styles';
-import { Loading } from '../../components/Loading';
-import { Character } from '../../components/Character';
+import { Loading } from '@/components/Loading';
+import { Character } from '@/components/Character';
+import { CharacterTypes } from '@/types';
 
 export const Home = () => {
-  const [loading, setLoading] = useState(true);
-  const [characters, setCharacters] = useState([]);
-
-  console.log(characters);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [characters, setCharacters] = useState<CharacterTypes[]>([]);
 
   useEffect(() => {
     let ignore = false;
@@ -42,16 +41,14 @@ export const Home = () => {
           {characters
             .filter(
               (character) =>
-                !`${character.thumbnail.path}.${character.thumbnail.extension}`.includes(
-                  'image_not_available',
-                ),
+                !character.thumbnail.path.includes('image_not_available'),
             )
             .map((character) => (
               <Character
                 key={character.id}
                 id={character.id}
                 name={character.name}
-                coverImg={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                thumbnail={character.thumbnail}
               />
             ))}
         </S.Characters>

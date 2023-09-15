@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
-export const container = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 50px 0;
   position: relative;
   min-height: 100vh;
 
-  .container img {
+  & img {
     max-width: 50%;
     max-height: 70vh;
   }
 
-  .container button {
+  & button {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -24,7 +24,7 @@ export const container = styled.div`
     transition: background-color 0.3s;
   }
 
-  .container button:hover {
+  & button:hover {
     background-color: #eee;
   }
 `;

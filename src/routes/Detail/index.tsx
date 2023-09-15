@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import * as S from './styles';
-import { Loading } from '../../components/Loading';
+import { Loading } from '@/components/Loading';
+import { CharacterDetailTypes } from '@/types';
 
 export const Detail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [characterDetail, setCharacterDetail] = useState([]);
+  const [characterDetail, setCharacterDetail] =
+    useState<CharacterDetailTypes>();
 
   const handleBackPage = () => {
     navigate(-1);
@@ -42,27 +44,27 @@ export const Detail = () => {
       {loading ? (
         <Loading />
       ) : (
-        <S.container>
+        <S.Container>
           <button onClick={handleBackPage}>뒤로가기</button>
           <div>
             <img
-              src={`${characterDetail.thumbnail.path}.${characterDetail.thumbnail.extension}`}
+              src={`${characterDetail?.thumbnail.path}.${characterDetail?.thumbnail.extension}`}
               alt="character"
             />
-            <h2>{characterDetail.name}</h2>
-            {characterDetail.series &&
-              characterDetail.series.items.length > 0 && (
+            <h2>{characterDetail?.name}</h2>
+            {characterDetail?.series &&
+              characterDetail?.series.items.length > 0 && (
                 <div>
                   <h3>Series</h3>
                   <ul>
-                    {characterDetail.series.items.map((seriesItem, index) => (
+                    {characterDetail?.series.items.map((seriesItem, index) => (
                       <li key={index}>{seriesItem.name}</li>
                     ))}
                   </ul>
                 </div>
               )}
           </div>
-        </S.container>
+        </S.Container>
       )}
     </>
   );

@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import { Home } from './routes/Home/intex';
-import { Detail } from './routes/Detail';
-import { Layout } from './routes/Layout';
+import { Home } from '@/routes/Home';
+import { Detail } from '@/routes/Detail';
+import { Layout } from '@/routes/Layout';
 
 const router = createBrowserRouter([
   {
