@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { fetchCharacterDetail } from '@/api';
+
 import * as S from './styles';
 import { Loading } from '@/components/Loading';
 import { CharacterDetailTypes } from '@/types';
@@ -20,14 +22,10 @@ export const Detail = () => {
     let ignore = false;
 
     const getCharacterDetail = async () => {
-      const json = await (
-        await fetch(
-          `https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters/${id}`,
-        )
-      ).json();
+      const data = await fetchCharacterDetail(id);
 
       if (!ignore) {
-        setCharacterDetail(json.data.results[0]);
+        setCharacterDetail(data.results[0]);
         setLoading(false);
       }
     };

@@ -1,3 +1,11 @@
+export interface Response<T> {
+  results: T;
+  count: number;
+  limit: number;
+  total: number;
+  offset: number;
+}
+
 export interface ImgUrlTypes {
   extension: string;
   path: string;
