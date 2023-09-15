@@ -10,6 +10,10 @@ export const Container = styled.div`
   & img {
     max-width: 50%;
     max-height: 70vh;
+    box-shadow:
+      0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
   }
 
   & button {
@@ -22,6 +26,7 @@ export const Container = styled.div`
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 16px; // 기본 글자 크기 설정
   }
 
   & button:hover {

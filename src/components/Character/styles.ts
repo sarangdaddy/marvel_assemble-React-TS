@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Character_container = styled.div`
   background-color: white;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
   font-weight: 300;
   padding: 20px;
   border-radius: 5px;
