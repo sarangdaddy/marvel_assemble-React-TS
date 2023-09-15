@@ -1,46 +1,14 @@
-# Getting Started with Create React App
+# marvel_assemble-React-TS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 소개
 
-## Available Scripts
+이 저장소는 리액트와 타입스크립트를 사용하여 간결하면서도 깊게 학습하기 위한 학습용 개인 프로젝트 입니다.  
+프로젝트의 규모는 작지만, 그 목적은 큽니다.
 
-In the project directory, you can run:
+## 목적
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 리액트와 타입스크립트의 핵심 원칙을 이해합니다.
+- 커스텀 훅을 디자인하고 구현해 봅니다.
+- Suspense와 같은 리액트의 최신 기능을 활용해 봅니다.
+- 에러바운더리를 활용하여 예외 상황을 감지하고 처리하는 방법을 학습합니다.
+- 캐싱 관리 등 효율적인 데이터 관리 방법을 학습합니다.
