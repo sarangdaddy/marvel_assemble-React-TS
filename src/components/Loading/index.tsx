@@ -1,9 +1,9 @@
-import S from './Loading.module.css';
+import * as S from './styles';
 
 export const Loading = () => {
   return (
-    <div className={S.loader}>
+    <S.Loader>
       <span>Loading...</span>
-    </div>
+    </S.Loader>
   );
 };

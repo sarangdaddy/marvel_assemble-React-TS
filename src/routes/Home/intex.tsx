@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 
-import S from './Home.module.css';
-import { Loading } from '../components/Loading';
-import { Character } from '../components/Character';
+import * as S from './styles';
+import { Loading } from '../../components/Loading';
+import { Character } from '../../components/Character';
 
 export const Home = () => {
   const [loading, setLoading] = useState(true);
   const [characters, setCharacters] = useState([]);
+
+  console.log(characters);
 
   useEffect(() => {
     let ignore = false;
@@ -32,11 +34,11 @@ export const Home = () => {
   }, []);
 
   return (
-    <div className={S.container}>
+    <S.Container>
       {loading ? (
         <Loading />
       ) : (
-        <div className={S.characters}>
+        <S.Characters>
           {characters
             .filter(
               (character) =>
@@ -52,8 +54,8 @@ export const Home = () => {
                 coverImg={`${character.thumbnail.path}.${character.thumbnail.extension}`}
               />
             ))}
-        </div>
+        </S.Characters>
       )}
-    </div>
+    </S.Container>
   );
 };

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import S from './Detail.module.css';
-import { Loading } from '../components/Loading';
+import * as S from './styles';
+import { Loading } from '../../components/Loading';
 
 export const Detail = () => {
   const { id } = useParams();
@@ -42,7 +42,7 @@ export const Detail = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className={S.container}>
+        <S.container>
           <button onClick={handleBackPage}>뒤로가기</button>
           <div>
             <img
@@ -62,7 +62,7 @@ export const Detail = () => {
                 </div>
               )}
           </div>
-        </div>
+        </S.container>
       )}
     </>
   );
