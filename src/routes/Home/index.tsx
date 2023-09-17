@@ -10,6 +10,9 @@ export const Home = () => {
   const { data: characters, status } = useFetch(fetchCharacters, 50);
   const charactersList = characters?.results;
 
+  // // 에러바운더리 작동 확인을 위한 에로 유도 코드
+  // console.log(charactersList[9999].name);
+
   return (
     <S.Container>
       {status === 'pending' ? (
