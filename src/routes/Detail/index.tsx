@@ -11,10 +11,10 @@ export const Detail = () => {
   const { data: characterDetail, status } = useFetch(fetchCharacterDetail, id);
   const detailsInfo = characterDetail?.results[0];
 
-  // // 에러 바운더리 확인을 위한 에러 유도 코드
-  // if (!detailsInfo) {
-  //   throw new Error('Details information is missing!');
-  // }
+  // 에러 바운더리 확인을 위한 에러 유도 코드
+  if (!detailsInfo) {
+    throw new Error('Details information is missing!');
+  }
 
   return (
     <>

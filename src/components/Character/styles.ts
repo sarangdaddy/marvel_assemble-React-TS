@@ -4,7 +4,7 @@ export const Character_container = styled.div`
   background-color: white;
   margin-bottom: 30px;
   font-weight: 300;
-  padding: 20px;
+  padding: 70 50 50 50;
   border-radius: 5px;
   color: #adaeb9;
   display: grid;
