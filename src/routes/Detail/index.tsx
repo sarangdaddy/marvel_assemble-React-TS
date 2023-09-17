@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { fetchCharacterDetail } from '@/api';
 
@@ -8,7 +8,6 @@ import { useFetch } from '@/hooks/useFetch';
 
 export const Detail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { data: characterDetail, status } = useFetch(fetchCharacterDetail, id);
   const detailsInfo = characterDetail?.results[0];
 
@@ -17,17 +16,12 @@ export const Detail = () => {
   //   throw new Error('Details information is missing!');
   // }
 
-  const handleBackPage = () => {
-    navigate(-1);
-  };
-
   return (
     <>
       {status === 'pending' ? (
         <Loading />
       ) : (
         <S.Container>
-          <button onClick={handleBackPage}>뒤로가기</button>
           <div>
             <img
               src={`${detailsInfo?.thumbnail.path}.${detailsInfo?.thumbnail.extension}`}
