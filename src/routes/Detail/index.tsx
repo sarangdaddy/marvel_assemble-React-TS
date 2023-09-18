@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { fetchCharacterDetail } from '@/api';
@@ -11,10 +12,18 @@ export const Detail = () => {
   const { data: characterDetail, status } = useFetch(fetchCharacterDetail, id);
   const detailsInfo = characterDetail?.results[0];
 
-  // 에러 바운더리 확인을 위한 에러 유도 코드
-  if (!detailsInfo) {
-    throw new Error('Details information is missing!');
-  }
+  // // 에러 바운더리 확인을 위한 에러 유도 코드 1
+  // if (!detailsInfo) {
+  //   throw new Error('Details information is missing!');
+  // }
+
+  // // 에러 바운더리 확인을 위한 에러 유도 코드 2
+  // useEffect(() => {
+  //   async function test() {
+  //     throw new Error('에러바운더리 테스트');
+  //   }
+  //   test();
+  // }, []);
 
   return (
     <>
