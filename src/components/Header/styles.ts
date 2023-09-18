@@ -12,6 +12,7 @@ export const HeaderContainer = styled.div`
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: fixed;
+  top: 0;
   z-index: 3;
 `;
 
