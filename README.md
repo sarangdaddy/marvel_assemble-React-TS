@@ -8,7 +8,7 @@
 ## 목적
 
 - 리액트와 타입스크립트의 핵심 원칙을 이해합니다.
-- 커스텀 훅을 디자인하고 구현해 봅니다.
+- [커스텀 훅을 디자인하고 구현해 봅니다.](https://github.com/sarangdaddy/marvel_assemble-React-TS/wiki/useFetch)
 - Suspense와 같은 리액트의 최신 기능을 활용해 봅니다.
-- 에러바운더리를 활용하여 예외 상황을 감지하고 처리하는 방법을 학습합니다.
+- [에러바운더리를 활용하여 예외 상황을 감지하고 처리하는 방법을 학습합니다.](https://github.com/sarangdaddy/marvel_assemble-React-TS/wiki/Error-Boundary)
 - 캐싱 관리 등 효율적인 데이터 관리 방법을 학습합니다.
