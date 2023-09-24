@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { fetchCharacterDetail } from '@/api';
@@ -6,10 +5,15 @@ import { fetchCharacterDetail } from '@/api';
 import * as S from './styles';
 import { Loading } from '@/components/Loading';
 import { useFetch } from '@/hooks/useFetch';
+import { ROUTE_PATH } from '@/router/routePath';
 
 export const Detail = () => {
   const { id } = useParams();
-  const { data: characterDetail, status } = useFetch(fetchCharacterDetail, id);
+  const { data: characterDetail, status } = useFetch({
+    fetchFunction: fetchCharacterDetail,
+    args: [id],
+    cacheKey: `${ROUTE_PATH.DETAIL}/${id}`,
+  });
   const detailsInfo = characterDetail?.results[0];
 
   // // 에러 바운더리 확인을 위한 에러 유도 코드 1
