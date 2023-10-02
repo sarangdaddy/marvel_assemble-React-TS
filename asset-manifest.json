@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/marvel_assemble-react-ts/static/css/main.b1f0beed.css",
-    "main.js": "/marvel_assemble-react-ts/static/js/main.c6566115.js",
+    "main.js": "/marvel_assemble-react-ts/static/js/main.3b43b1eb.js",
     "static/js/434.8c8f1d09.chunk.js": "/marvel_assemble-react-ts/static/js/434.8c8f1d09.chunk.js",
     "index.html": "/marvel_assemble-react-ts/index.html",
     "main.b1f0beed.css.map": "/marvel_assemble-react-ts/static/css/main.b1f0beed.css.map",
-    "main.c6566115.js.map": "/marvel_assemble-react-ts/static/js/main.c6566115.js.map",
+    "main.3b43b1eb.js.map": "/marvel_assemble-react-ts/static/js/main.3b43b1eb.js.map",
     "434.8c8f1d09.chunk.js.map": "/marvel_assemble-react-ts/static/js/434.8c8f1d09.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b1f0beed.css",
-    "static/js/main.c6566115.js"
+    "static/js/main.3b43b1eb.js"
   ]
 }
