@@ -4,7 +4,7 @@ import { useFetch } from '@/hooks/useFetch';
 import { ROUTE_PATH } from '@/router/routePath';
 import * as S from './styles';
 
-export const Detail = () => {
+const Detail = () => {
   const { id } = useParams();
   const { data: characterDetail } = useFetch({
     fetchFunction: fetchCharacterDetail,
@@ -52,3 +52,5 @@ export const Detail = () => {
     </>
   );
 };
+
+export default Detail;

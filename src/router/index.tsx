@@ -1,13 +1,14 @@
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Home } from '@/routes/Home';
-import { Detail } from '@/routes/Detail';
 import { Layout } from '@/routes/Layout';
 import { ROUTE_PATH } from '@/router/routePath';
 import { NotFound } from '@/routes/NotFound';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { Loading } from '@/components/Loading';
+import Home from '@/routes/Home';
+
+const Detail = lazy(() => import('@/routes/Detail'));
 
 export const router = createBrowserRouter([
   {

@@ -4,7 +4,7 @@ import { ROUTE_PATH } from '@/router/routePath';
 import { Character } from '@/components/Character';
 import * as S from './styles';
 
-export const Home = () => {
+const Home = () => {
   const { data: characters } = useFetch({
     fetchFunction: fetchCharacters,
     args: [50],
@@ -35,3 +35,5 @@ export const Home = () => {
     </S.Container>
   );
 };
+
+export default Home;
