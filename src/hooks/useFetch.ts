@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useCacheContext } from '@/contexts/CacheContext';
 
 type Status = 'initial' | 'pending' | 'fulfilled' | 'rejected';
@@ -30,27 +30,27 @@ export const useFetch = <T>({
   });
 
   const { cacheData, isDataValid } = useCacheContext();
+  const activePromise = useRef<Promise<void> | null>(null);
+
   useEffect(() => {
     let ignore = false;
 
     const fetchData = async () => {
       if (ignore) return;
 
-      setState((state) => ({ ...state, status: 'pending' }));
-
       try {
         const response = await fetchFunction(...args);
-
         cacheData(cacheKey, response);
-        setState((state) => ({
-          ...state,
+
+        setState((prevState) => ({
+          ...prevState,
           status: 'fulfilled',
           data: response,
           cacheKey,
         }));
       } catch (error) {
-        setState((state) => ({
-          ...state,
+        setState((prevState) => ({
+          ...prevState,
           status: 'rejected',
           error: error as Error,
           cacheKey,
@@ -60,14 +60,18 @@ export const useFetch = <T>({
 
     if (state.status === 'initial') {
       if (isDataValid(cacheKey)) {
-        setState((state) => ({
-          ...state,
+        setState((prevState) => ({
+          ...prevState,
           status: 'fulfilled',
           data: cacheData(cacheKey),
           cacheKey,
         }));
       } else {
-        fetchData();
+        setState((prevState) => ({
+          ...prevState,
+          status: 'pending',
+        }));
+        activePromise.current = fetchData();
       }
     }
 
@@ -75,6 +79,13 @@ export const useFetch = <T>({
       ignore = true;
     };
   }, [fetchFunction, cacheKey, cacheData, isDataValid, state.status]);
+
+  if (state.status === 'pending' && activePromise.current) {
+    throw activePromise.current;
+  }
+  if (state.status === 'rejected' && state.error) {
+    throw state.error;
+  }
 
   return state;
 };

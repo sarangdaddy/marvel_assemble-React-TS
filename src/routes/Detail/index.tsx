@@ -1,15 +1,12 @@
 import { useParams } from 'react-router-dom';
-
 import { fetchCharacterDetail } from '@/api';
-
-import * as S from './styles';
-import { Loading } from '@/components/Loading';
 import { useFetch } from '@/hooks/useFetch';
 import { ROUTE_PATH } from '@/router/routePath';
+import * as S from './styles';
 
 export const Detail = () => {
   const { id } = useParams();
-  const { data: characterDetail, status } = useFetch({
+  const { data: characterDetail } = useFetch({
     fetchFunction: fetchCharacterDetail,
     args: [id],
     cacheKey: `${ROUTE_PATH.DETAIL}/${id}`,
@@ -31,9 +28,7 @@ export const Detail = () => {
 
   return (
     <>
-      {status === 'pending' ? (
-        <Loading />
-      ) : (
+      {detailsInfo && (
         <S.Container>
           <div>
             <img

@@ -1,14 +1,11 @@
 import { fetchCharacters } from '@/api';
-
-import * as S from './styles';
-import { Loading } from '@/components/Loading';
-import { Character } from '@/components/Character';
-
 import { useFetch } from '@/hooks/useFetch';
 import { ROUTE_PATH } from '@/router/routePath';
+import { Character } from '@/components/Character';
+import * as S from './styles';
 
 export const Home = () => {
-  const { data: characters, status } = useFetch({
+  const { data: characters } = useFetch({
     fetchFunction: fetchCharacters,
     args: [50],
     cacheKey: ROUTE_PATH.HOME,
@@ -20,25 +17,21 @@ export const Home = () => {
 
   return (
     <S.Container>
-      {status === 'pending' ? (
-        <Loading />
-      ) : (
-        <S.Characters>
-          {charactersList
-            ?.filter(
-              (character) =>
-                !character.thumbnail.path.includes('image_not_available'),
-            )
-            .map((character) => (
-              <Character
-                key={character.id}
-                id={character.id}
-                name={character.name}
-                thumbnail={character.thumbnail}
-              />
-            ))}
-        </S.Characters>
-      )}
+      <S.Characters>
+        {charactersList
+          ?.filter(
+            (character) =>
+              !character.thumbnail.path.includes('image_not_available'),
+          )
+          .map((character) => (
+            <Character
+              key={character.id}
+              id={character.id}
+              name={character.name}
+              thumbnail={character.thumbnail}
+            />
+          ))}
+      </S.Characters>
     </S.Container>
   );
 };
